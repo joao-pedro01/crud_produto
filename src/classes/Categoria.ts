@@ -1,7 +1,6 @@
-class Categoria {
+export class Categoria {
     private id: number;
     private nome: string;
-    private descricao: string;
     private isActive: boolean;
     private createdAt: Date;
     private updatedAt: Date;
@@ -9,7 +8,6 @@ class Categoria {
     constructor() {
         this.id = 0;
         this.nome = "";
-        this.descricao = "";
         this.isActive = false;
         this.createdAt = new Date();
         this.updatedAt = new Date();
@@ -27,13 +25,6 @@ class Categoria {
     }
     public setNome(nome: string): void {
         this.nome = nome;
-    }
-
-    public getDescricao(): string {
-        return this.descricao;
-    }
-    public setDescricao(descricao: string): void {
-        this.descricao = descricao;
     }
 
     public getIsActive(): boolean {
@@ -57,5 +48,3 @@ class Categoria {
         this.updatedAt = updatedAt;
     }
 }
-
-export default Categoria;
