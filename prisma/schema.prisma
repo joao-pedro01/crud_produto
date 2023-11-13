@@ -3,23 +3,25 @@ generator client {
 }
 
 datasource db {
-        provider = "postgresql"
-        url      = env("DATABASE_URL")
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
 }
 
 model produto {
-    id        Int      @id @default(autoincrement())
+    id           Int      @id @default(autoincrement())
     id_categoria Int
-    nome      String
-    preco     Float
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    fk_categoria   categoria @relation(fields: [id_categoria], references: [id])
+    nome         String
+    preco        Float
+    isActive     Boolean @default(true)
+    createdAt    DateTime @default(now())
+    updatedAt    DateTime @updatedAt()
+    fk_categoria categoria @relation(fields: [id_categoria], references: [id])
 }
 
 model categoria {
     id        Int      @id @default(autoincrement())
     nome      String
+    isActive  Boolean @default(true)
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     produtos  produto[]
